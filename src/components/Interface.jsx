@@ -1,6 +1,5 @@
-import { Affix, Button, Stack } from "@mantine/core";
 import { useCharacterAnimations } from "../context/CharacterAnimations";
-import { Html } from "@react-three/drei";
+import { Button } from "./ui/button";
 
 export const Interface = () => {
   const { animations, animationIndex, setAnimationIndex } =
@@ -8,13 +7,13 @@ export const Interface = () => {
   return (
     <div className="interface">
       {animations.map((animation, index) => (
-      <button
+      <Button
           key={animation}
           variant={index === animationIndex ? "filled" : "light"}
           onClick={() => setAnimationIndex(index)}
       >
           {animation}
-      </button>
+      </Button>
       ))}
     </div>
   );

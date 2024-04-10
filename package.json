@@ -10,22 +10,27 @@
   },
   "dependencies": {
     "@manapotion/react": "^0.25.0",
-    "@mantine/core": "^7.7.1",
-    "@mantine/hooks": "^7.7.1",
+    "@radix-ui/react-slot": "^1.0.2",
     "@react-three/drei": "^9.105.1",
     "@react-three/fiber": "8.13.3",
     "@react-three/rapier": "^0.15.1",
+    "clsx": "^2.1.0",
     "leva": "^0.9.35",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sharp": "^0.33.3",
+    "tailwind-merge": "^2.2.2",
     "three": "0.153.0",
     "zustand": "^4.3.7"
   },
   "devDependencies": {
+    "@types/node": "^20.12.7",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.1.0",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
     "vite": "^4.1.0"
   }
 }
