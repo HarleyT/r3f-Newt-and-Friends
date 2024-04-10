@@ -1,4 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 #root {
   width: 100vw;
@@ -24,14 +26,21 @@ body {
   }
 }
 
-.interface {
+.drawer {
   position: fixed;
-  right: 0px;
-  bottom: 0px;
+  top: 0px;
+  left: 10px;
+  background: white;
+}
+
+.dev {
+  position: fixed;
+  top: 10px;
+  right: 10px;
   color: black;
 }
 
-button {
+/* button {
   background: rgb(215 186 223 / 60%);
   padding: 14px 22px;
   border: none;
@@ -46,4 +55,4 @@ button:hover {
   background: #fffffff5;
   cursor: pointer;
   color: #000000b3;
-}
+} */

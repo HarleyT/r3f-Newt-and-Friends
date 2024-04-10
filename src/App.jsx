@@ -11,6 +11,7 @@ import { Suspense, useMemo } from "react";
 import { Experience } from "./components/Experience";
 import { Interface } from "./components/Interface";
 import { Listeners } from "@manapotion/react";
+import { DevTools } from "./components/DevTools";
 
 export const Controls = {
   forward: "forward",
@@ -49,6 +50,7 @@ function App() {
         </Suspense>
       </Canvas>
       <Interface />
+      <DevTools />
       <Loader />
       {progress === 100}
       </KeyboardControls>
