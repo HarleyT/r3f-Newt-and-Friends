@@ -6,7 +6,7 @@ export const Interface = () => {
   const { animations, animationIndex, setAnimationIndex } =
     useCharacterAnimations();
   return (
-    <Html >
+    <div className="interface">
       {animations.map((animation, index) => (
       <button
           key={animation}
@@ -16,7 +16,7 @@ export const Interface = () => {
           {animation}
       </button>
       ))}
-    </Html>
+    </div>
   );
 };
 

@@ -18,6 +18,7 @@ export const Controls = {
   left: "left",
   right: "right",
   jump: "jump",
+  run: "run",
 };
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
       { name: Controls.left, keys: ["ArrowLeft", "KeyA"] },
       { name: Controls.right, keys: ["ArrowRight", "KeyD"] },
       { name: Controls.jump, keys: ["Space"] },
+      { name: Controls.run, keys: ["Shift"] },
     ],
     []
   );
@@ -43,10 +45,10 @@ function App() {
         <Suspense>
           <Physics>
             <Experience />
-            <Interface />
           </Physics>
         </Suspense>
       </Canvas>
+      <Interface />
       <Loader />
       {progress === 100}
       </KeyboardControls>

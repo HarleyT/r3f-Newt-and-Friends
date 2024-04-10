@@ -24,13 +24,12 @@ export default function Character(props) {
   }, [animationIndex]);
 
 
-
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
         <group name="MyCharacter">
           <skinnedMesh
-            castShadow
+            castShadow='true'
             name="characterMedium"
             geometry={nodes.characterMedium.geometry}
             material={materials['skin.001']}

@@ -15,6 +15,7 @@ const RUN_VEL = 1.5;
 export const CharacterController = () => {
 
   const jumpPressed = useKeyboardControls((state) => state[Controls.jump]);
+  const runPressed = useKeyboardControls((state) => state[Controls.run]);
   const leftPressed = useKeyboardControls((state) => state[Controls.left]);
   const rightPressed = useKeyboardControls((state) => state[Controls.right]);
   const backPressed = useKeyboardControls((state) => state[Controls.back]);
