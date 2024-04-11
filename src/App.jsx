@@ -41,7 +41,7 @@ function App() {
       <KeyboardControls map={map}>
       <Leva hidden />
       <Listeners />
-      <Canvas shadows camera={{ position: [5, 20, 14], fov: 42 }}>
+      <Canvas frameloop="demand" shadows camera={{ position: [5, 20, 14], fov: 42 }}>
         <color attach="background" args={["#e3daf7"]} />
         <Suspense>
           <Physics>
