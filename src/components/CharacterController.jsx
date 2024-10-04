@@ -1,4 +1,4 @@
-import { OrbitControls, PerspectiveCamera, useKeyboardControls } from "@react-three/drei";
+import { useKeyboardControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { CapsuleCollider, RigidBody, vec3 } from "@react-three/rapier";
 import { useState, useRef } from "react";
@@ -6,7 +6,7 @@ import { Controls } from "../App";
 import Character from "./Character";
 
 import * as THREE from "three";
-const JUMP_FORCE = 0.5;
+const JUMP_FORCE = 1;
 const MOVEMENT_SPEED = 0.2;
 const MAX_VEL = 3;
 const RUN_VEL = 1.5;
@@ -68,43 +68,40 @@ export const CharacterController = () => {
       character.current.rotation.y = angle;
     }
 
-    // CAMERA ORBIT
-
     // CAMERA FOLLOW
-    // const characterWorldPosition = character.current.getWorldPosition(
-    //   new THREE.Vector3()
-    // );
+    const characterWorldPosition = character.current.getWorldPosition(
+      new THREE.Vector3()
+    );
 
-    // const targetCameraPosition = new THREE.Vector3(
-    //   characterWorldPosition.x,
-    //   0,
-    //   characterWorldPosition.z + 4
-    // );
+    const targetCameraPosition = new THREE.Vector3(
+      characterWorldPosition.x,
+      0,
+      characterWorldPosition.z + 10
+    );
 
-    // targetCameraPosition.y = 2;
+    targetCameraPosition.y = 10;
 
-    // state.camera.position.lerp(targetCameraPosition, delta * 1);
+    state.camera.position.lerp(targetCameraPosition, delta * 50);
 
-    // state.camera.far = 100;
+    const targetLookAt = new THREE.Vector3(
+      characterWorldPosition.x,
+      characterWorldPosition.y,
+      characterWorldPosition.z
+    );
 
-    // const targetLookAt = new THREE.Vector3(
-    //   characterWorldPosition.x,
-    //   0,
-    //   characterWorldPosition.z
-    // );
+    const direction = new THREE.Vector3();
+    state.camera.getWorldDirection(direction);
 
-    // const direction = new THREE.Vector3();
-    // state.camera.getWorldDirection(direction);
+    const position = new THREE.Vector3();
+    state.camera.getWorldPosition(position);
 
-    // const position = new THREE.Vector3();
-    // state.camera.getWorldPosition(position);
 
     // const currentLookAt = position.clone().add(direction);
     // const lerpedLookAt = new THREE.Vector3();
 
     // lerpedLookAt.lerpVectors(currentLookAt, targetLookAt, delta * 1);
 
-    // state.camera.lookAt(lerpedLookAt);
+    state.camera.lookAt(targetLookAt);
   });
 
   const character = useRef();
@@ -134,8 +131,6 @@ export const CharacterController = () => {
         <CapsuleCollider args={[0.8, 0.4]} position={[0, 1.2, 0]} />
         <group ref={character}>
           <Character animation={animation}/>
-          <OrbitControls />
-          <PerspectiveCamera near={0.1} far={5}/>
         </group>
       </RigidBody>
     </group>

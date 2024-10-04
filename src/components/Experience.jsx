@@ -1,5 +1,5 @@
 // import { OrbitControls } from "@react-three/drei";
-import { ContactShadows, Environment } from "@react-three/drei";
+import { ContactShadows, Environment, OrbitControls, OrthographicCamera, PerspectiveCamera } from "@react-three/drei";
 import {
   CuboidCollider,
   CylinderCollider,
@@ -54,7 +54,7 @@ export const Experience = () => {
           colliders={false}
           type="fixed"
           position-y={-0.5}
-          friction={2}
+          friction={10}
         >
           <CylinderCollider args={[1 / 2, 500]} />
         </RigidBody>

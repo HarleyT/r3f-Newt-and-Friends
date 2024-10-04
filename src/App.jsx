@@ -1,13 +1,14 @@
 import {
   KeyboardControls,
   Loader,
+  PerformanceMonitor,
   useFont,
   useProgress,
 } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Physics } from "@react-three/rapier";
 import { Leva } from "leva";
-import { Suspense, useMemo } from "react";
+import { Suspense, useMemo, useState } from "react";
 import { Experience } from "./components/Experience";
 import { Interface } from "./components/Interface";
 import { Listeners } from "@manapotion/react";
@@ -36,18 +37,21 @@ function App() {
     []
   );
 
+  const [dpr, setDpr] = useState(1.5);
   const { progress } = useProgress();
   return (
       <KeyboardControls map={map}>
       <Leva hidden />
       <Listeners />
-      <Canvas frameloop="demand" shadows camera={{ position: [5, 20, 14], fov: 42 }}>
+      <Canvas frameloop="demand" shadows camera={{ position: [5, 20, 14], fov: 42, far:50}} dpr={dpr}>
         <color attach="background" args={["#e3daf7"]} />
-        <Suspense>
-          <Physics>
-            <Experience />
-          </Physics>
-        </Suspense>
+        <PerformanceMonitor onIncline={() => setDpr(2)} onDecline={() => setDpr(1)}>
+          <Suspense>
+            <Physics>
+              <Experience />
+            </Physics>
+          </Suspense>
+        </PerformanceMonitor>
       </Canvas>
       <Interface />
       <DevTools />
